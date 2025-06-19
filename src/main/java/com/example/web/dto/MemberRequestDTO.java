@@ -1,5 +1,6 @@
 package com.example.web.dto;
 
+import com.example.domain.enums.Gender;
 import com.example.domain.enums.Role;
 import com.example.validation.annotation.ExistCategories;
 import jakarta.validation.constraints.Email;
@@ -24,7 +25,7 @@ public class MemberRequestDTO {
         @NotBlank
         String password;    // 비밀번호 필드 추가
         @NotNull
-        Integer gender;
+        Gender gender;
         @NotNull
         Integer birthYear;
         @NotNull
@@ -39,5 +40,16 @@ public class MemberRequestDTO {
         List<Long> preferCategory;
         @NotNull
         Role role;    // 역할 필드 추가
+    }
+
+    @Getter
+    @Setter
+    public static class LoginRequestDTO{
+        @NotBlank(message = "이메일은 필수입니다.")
+        @Email(message = "올바른 이메일 형식이어야 합니다.")
+        private String email;
+
+        @NotBlank(message = "패스워드는 필수입니다.")
+        private String password;
     }
 }
