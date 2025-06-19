@@ -1,5 +1,6 @@
 package com.example.web.dto;
 
+import com.example.domain.enums.Gender;
 import com.example.domain.enums.Role;
 import com.example.validation.annotation.ExistCategories;
 import jakarta.validation.constraints.Email;

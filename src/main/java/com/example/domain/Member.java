@@ -55,14 +55,14 @@ public class Member extends BaseEntity {
 
     private LocalDate inactiveDate;
 
-    //@Column(nullable = false, length = 50)
-    // private String email;
+    @Column(nullable = false, length = 50)
+    private String email;
 
     @ColumnDefault("0")
     private Integer point;
 
-    @Column(nullable = false, unique = true)
-    private String email;
+//    @Column(nullable = false, unique = true)
+//    private String email;
 
     @Column(nullable = false)
     private String password;

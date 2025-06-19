@@ -28,6 +28,7 @@ public class MemberCommandServiceImpl implements MemberCommandService{
 
     private final PasswordEncoder passwordEncoder;
 
+
     @Override
     @Transactional
     public Member joinMember(MemberRequestDTO.JoinDto request) {
