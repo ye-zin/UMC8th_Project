@@ -3,6 +3,7 @@ package com.example.domain;
 import com.example.domain.common.BaseEntity;
 import com.example.domain.enums.Gender;
 import com.example.domain.enums.MemberStatus;
+import com.example.domain.enums.Role;
 import com.example.domain.enums.SocialType;
 import com.example.domain.mapping.MemberAgree;
 import com.example.domain.mapping.MemberMission;
@@ -55,10 +56,19 @@ public class Member extends BaseEntity {
     private LocalDate inactiveDate;
 
     //@Column(nullable = false, length = 50)
-    private String email;
+    // private String email;
 
     @ColumnDefault("0")
     private Integer point;
+
+    @Column(nullable = false, unique = true)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberAgree> memberAgreeList = new ArrayList<>();
@@ -71,4 +81,8 @@ public class Member extends BaseEntity {
 
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<MemberMission> memberMissionList = new ArrayList<>();
+
+    public void encodePassword(String password) {
+        this.password = password;
+    }
 }

@@ -14,7 +14,12 @@ public class ReviewQueryServiceImpl implements ReviewQueryService {
         this.reviewRepository = reviewRepository;
     }
     @Override
-    public Page<Review> getMyReviewList(Long memberId, Integer PageRequest){
-        return reviewRepository.findAllByMemberId(memberId,PageRequest);
+    public Page<Review> getMyReviewList(Long memberId, PageRequest pageRequest){
+        return reviewRepository.findAllByMemberId(memberId,pageRequest);
+    }
+
+    @Override
+    public Page<Review> getMyReviewList(Long memberId, Integer page) {
+        return null;
     }
 }
